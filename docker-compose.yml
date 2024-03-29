@@ -13,6 +13,14 @@ services:
     networks:
       - ingress-network
 
+  api:
+    image: numojo-api
+    depends_on:
+      - db
+    networks:
+      - db-network
+      - ingress-network
+
   db:
     image: mongo
     # restart: always
